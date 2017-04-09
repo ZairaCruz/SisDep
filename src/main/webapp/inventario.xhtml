@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+    <h:body>
+    	<ui:composition template="/templates/layout.xhtml">
+    	<ui:define name="content">
+    		<div class="panel panel-info">
+		    	<div class="panel-heading"><h1>#{msgs.tituloIn}</h1></div>
+		    	<div class="panel-body">
+	    		
+	    		<h:form>
+	    		<div align="center">
+	    			<h:graphicImage library="imagem" name="attach.png" title="Inventário"/>
+	    			<table>
+	    				<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
+						<tr>
+							<td><h:commandLink styleClass="links" value="#{msgs.tituloRelat2}" action="completo"/></td>
+							<td><h:graphicImage library="imagem" name="completo.png" title="#{msgs.tituloRelat1}"/></td>
+							<td>&nbsp;&nbsp;&nbsp;</td>
+						</tr>
+					</table>
+					<table>
+						<tr><td>&nbsp;&nbsp;&nbsp;</td></tr>
+						<tr>
+		
+							<td><h:commandLink styleClass="links" value="#{msgs.tituloRelat1}" action="baixados"/></td>
+							<td><h:graphicImage library="imagem" name="resumido.png" title="#{msgs.tituloRelat2}"/></td>
+							<td>&nbsp;&nbsp;&nbsp;</td>
+						</tr>
+					</table>
+					
+	    			<div style="text-align: center; margin-top: 50px;">
+						<h:commandLink styleClass="links" value="#{msgs.botaoVoltar}" action="#{viewPatrimonio.actionVoltarMenu}"/>
+					</div>
+	    		
+	    		</div>
+	    		</h:form>
+	    		</div>
+	    	</div>
+    	</ui:define>
+    	</ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:body>
+	<ui:composition template="/templates/layout.xhtml">
+		<ui:define name="content">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h1>#{msgs.tituloB}</h1>
+				</div>
+				<h:form id="Baixar">
+				
+				<h:inputHidden value="#{viewPatrimonio.patrimonio.id}" />
+				<div style="margin-bottom: 10px;">
+					
+					<h:outputLabel style="font-size: 1em; margin-top: -50px;"
+						value="#{viewPatrimonio.d}">
+						<f:convertDateTime pattern="d 'de' MMMM 'de' yyyy" />
+					</h:outputLabel>
+				</div>
+				<table class="table">
+					<thead>
+						<tr class="info">
+							<td><h:outputLabel value="#{msgs.promptDep}" /></td>
+							<td><h:outputLabel value="#{viewPatrimonio.patrimonio.id}" /></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="#{msgs.promptDepN}" /></td>
+							<td><h:outputLabel value="#{viewPatrimonio.patrimonio.nome}" /></td>
+						</tr>
+						<tr class="info">
+							<td><h:outputLabel value="#{msgs.promptD}" /></td>
+							<td><h:outputLabel
+									value="#{viewPatrimonio.patrimonio.dataAquisicao}">
+									<f:convertDateTime pattern="dd/MM/yyyy" />
+								</h:outputLabel></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="#{msgs.promptVu}" /></td>
+							<td><h:outputLabel
+									value="#{viewPatrimonio.patrimonio.vidaUtil}" disabled="true">
+									<f:convertNumber pattern="#' anos'" />
+								</h:outputLabel></td>
+						</tr>
+
+						<tr class="info">
+							<td><h:outputLabel value="#{msgs.promptVa}" /></td>
+							<td><h:outputLabel
+									value="#{viewPatrimonio.patrimonio.valorAquisicao}">
+									<f:convertNumber pattern="#0.00" />
+								</h:outputLabel></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="#{msgs.promptTu}" /></td>
+							<td><h:outputLabel
+									value="#{viewPatrimonio.patrimonio.turnos}">
+									<f:convertNumber pattern="#0 x 8hs" />
+								</h:outputLabel></td>
+						</tr>
+						<tr class="info">
+							<td><h:outputLabel value="#{msgs.promptTr}" /></td>
+							<td><h:outputText
+									value="#{viewPatrimonio.patrimonio.taxaResidual}">
+									<f:convertNumber pattern="#0' %'" />
+								</h:outputText></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="#{msgs.promptPe}" /></td>
+							<td><h:outputText
+									value="#{viewPatrimonio.patrimonio.periodo}" size="6">
+									<f:convertNumber pattern="#0 meses" />
+								</h:outputText></td>
+						</tr>
+						<tr class="info">
+							<td><h:outputLabel value="#{msgs.promptVr}" /></td>
+							<td><h:outputText
+									value="#{viewPatrimonio.patrimonio.valorResidual}" size="6">
+									<f:convertNumber pattern="#0.00" />
+								</h:outputText></td>
+						</tr>
+						<tr>
+							<td><h:outputLabel value="#{msgs.promptVd}" /></td>
+							<td><h:outputText
+									value="#{viewPatrimonio.patrimonio.valorDepreciado}" size="6">
+									<f:convertNumber pattern="#0.00" />
+								</h:outputText></td>
+						</tr>
+						<tr class="info">
+							<td><h:outputLabel value="#{msgs.promptVc}" /></td>
+							<td><h:outputText
+									value="#{viewPatrimonio.patrimonio.valorContabil}" size="6">
+									<f:convertNumber pattern="#0.00" />
+								</h:outputText></td>
+						</tr>
+					</thead>
+				</table>
+				<h:messages layout="table" errorClass="errors"/>
+				<div class="form-inline">
+					<div class="form-group">
+						<h:outputLabel class="control-label col-sm-4" value="#{msgs.promptDb}"></h:outputLabel>
+						<div class="col-sm-4">
+							<h:inputText class="form-control"
+								value="#{viewPatrimonio.patrimonio.dataBaixa}" >
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:inputText>
+						</div>
+					</div>
+		
+	
+				
+					<div class="form-group">
+						<h:outputLabel class="control-label col-sm-3" value="#{msgs.promptVb}"></h:outputLabel>
+						<div class="col-sm-3">
+							<h:inputText class="form-control"
+								value="#{viewPatrimonio.patrimonio.valorBaixa}" required="true" 
+								label="#{msgs.promptVb}">
+							</h:inputText>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-4">
+							<h:commandButton class="btn btn-danger" value="#{msgs.botaoBx}"
+								action="#{viewPatrimonio.actionBaixar}" />
+							
+						</div>
+
+					</div>
+
+				</div >
+				</h:form>
+				<h:form>
+					<div class="btn-group"
+						style="margin-top: 30px; margin-bottom: 40px;">
+						<h:commandButton class="btn btn-primary btn-block" value="#{msgs.botaoVoltar}"
+							action="#{viewPatrimonio.actionVoltarMenu}" />
+						<h:commandButton class="btn btn-primary btn-block"
+							value="#{msgs.botaoBxO}" action="baixar_patrimonio" />
+					</div>
+				
+				</h:form>
+			</div>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

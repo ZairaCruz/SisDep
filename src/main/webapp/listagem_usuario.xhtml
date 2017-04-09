@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+    <h:body>
+    	<ui:composition template="/templates/layout.xhtml">
+    	<ui:define name="content">
+			<div class="panel panel-info">
+		    	<div class="panel-heading"><h1>#{msgs.tituloUs1}</h1></div>
+		    	<div class="panel-body">
+					<h:form>
+					<h:inputHidden value="#{viewLogin.usuario.id}" />
+						<h:dataTable value="#{viewLogin.listagem}" var="usuario" border="4"
+							class="table">
+							<f:facet name="header">
+								<h:commandLink styleClass="links" value="#{msgs.linkUsu}"
+									action="#{viewLogin.actionNovo}" />
+								<h:graphicImage styleClass="imagem" library="imagem" name="userInsert.png"/>
+							</f:facet>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.promptId}" />
+								</f:facet>
+								<h:outputLabel value="#{usuario.id}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.promptUn}" />
+								</f:facet>
+								<h:outputLabel value="#{usuario.nome}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.promptLo}" />
+								</f:facet>
+								<h:outputLabel value="#{usuario.login}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">
+									<h:outputLabel value="#{msgs.promptUt}" />
+								</f:facet>
+								<h:outputLabel value="#{usuario.tipo}" />
+							</h:column>
+							
+							<h:column>
+								<h:commandLink action="#{viewLogin.actionApagar}">
+								<h:graphicImage library="imagem" name="userDeletePeq.png" title="Apagar Usuário"/>
+								<f:setPropertyActionListener value="#{usuario}" target="#{viewLogin.usuario}"/>
+								</h:commandLink>
+							</h:column>
+							<h:column>
+								<h:commandLink action="formulario_usuario">
+									<h:graphicImage library="imagem" name="userUpdatePeq.png" title="Alterar Usuário"/>
+									<f:setPropertyActionListener value="#{usuario}" target="#{viewLogin.usuario}"/>
+								</h:commandLink>
+							</h:column>
+						</h:dataTable>
+						<div class="btn-group" style="margin-top: 40px;">
+							 <h:commandButton class="btn btn-primary" value="#{msgs.botaoS}" action="login_administrador"/>
+						</div>
+				   	</h:form>
+				</div>
+		    </div>
+    	</ui:define>
+    	</ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+    <h:body>
+    	<ui:composition template="/templates/layout.xhtml">
+    	<ui:define name="content">
+    		<h:form>
+    		
+    		<div class="panel panel-info">
+		    <div class="panel-heading"><h1>Menu de opções</h1></div>
+    			<div align="center" style="margin-top: 50px;">
+				<table>
+					<tr>
+						<td><h:commandLink styleClass="links" value="#{msgs.linkM1}" action="manutencao"/></td>
+						<td><h:graphicImage library="imagem" name="settings.png" title="#{msgs.linkM1}"/></td>
+						<td>&nbsp;&nbsp;&nbsp;</td>
+						<td><h:commandLink styleClass="links" value="#{msgs.linkM2}" action="inventario"/></td>
+						<td><h:graphicImage library="imagem" name="layers.png" title="#{msgs.linkM2}"/></td>
+					</tr>
+				
+					<tr>
+						<td><h:commandLink styleClass="links" value="#{msgs.linkM3}" action="depreciacoes"/></td>
+						<td><h:graphicImage library="imagem" name="bar-chart.png" title="#{msgs.linkM3}"/></td>
+						<td >&nbsp;&nbsp;&nbsp;</td>
+						<td><h:commandLink styleClass="links" value="#{msgs.linkM4}" action="baixar_patrimonio"/></td>
+						<td><h:graphicImage library="imagem" name="box.png" title="#{msgs.linkM4}"/></td>
+					</tr>
+				</table>
+				</div>
+				<div style="margin-top: 50px; margin-bottom: 30px;">
+	    			<h:commandLink styleClass="links" value="#{msgs.botaoS}" action="index"/>
+	 			</div>
+				
+    		</div>
+			</h:form>	
+    		</ui:define>
+    		
+    	</ui:composition>
+    	
+    </h:body>
+
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+    <h:body>
+    	<ui:composition template="/templates/layout.xhtml">
+    	<ui:define name="content">
+    		<h:inputHidden value="#{viewPatrimonio.patrimonio.id}" />
+	
+    		<div class="panel panel-info">
+		    	<div class="panel-heading"><h1>#{msgs.tituloU}</h1></div>
+		    	<h:form style="margin-top: 20px;">
+		    		<h:inputHidden value="#{viewLogin.usuario.id}" />
+		    		<h:messages layout="table" errorClass="errors"/>
+			    	<div class="form-horizontal">
+			    		<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptUn}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputText class="form-control" value="#{viewLogin.usuario.nome}"/>
+	 						</div>
+	 					</div>
+			    		<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptLo}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputText class="form-control" value="#{viewLogin.usuario.login}"/>
+	 						</div>
+			    		</div>
+	 					<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptSe}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputSecret class="form-control" value="#{viewLogin.usuario.senha}"/>
+	 						</div>
+	 					</div>
+	 					
+	 					<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptUt}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:selectOneMenu class="control-label col-sm-20" value="#{viewLogin.usuario.tipo}">
+									<f:selectItem itemLabel="Administrador" itemValue="administrador" />
+									<f:selectItem itemLabel="Contador" itemValue="contador" />
+									
+								</h:selectOneMenu>
+	 						</div>
+	 					</div>
+	 				</div>
+		    		<div class="btn-group" style="margin-bottom: 20px;">
+		    			<h:commandButton class="btn btn-primary" value="#{msgs.botaoG}" action="#{viewLogin.actionGravar}"/>
+    				</div>
+    				</h:form>
+    				<h:form>
+    					<div class="btn-group" style="margin-bottom: 20px;">
+							 <h:commandButton class="btn btn-primary" value="#{msgs.botaoCan}" action="listagem_usuario"/>
+    					
+						</div>		
+				</h:form>
+			</div>
+    	</ui:define>
+    	</ui:composition>
+    </h:body>
+</html>

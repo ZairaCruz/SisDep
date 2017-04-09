@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+    <h:body>
+    	<ui:composition template="/templates/layout.xhtml">
+    	<ui:define name="content">
+    		<div class="panel panel-info">
+		    <div class="panel-heading"><h1>#{msgs.tituloRelat1}</h1></div>	
+    		<div align="center" style="margin-top: 20px;">
+				<h:form>
+					<div class="table-responsive">
+					<h:dataTable value="#{viewPatrimonio.listagem}" var="patrimonio" border="4"
+						styleClass="orders" headerClass="ordersHeader" rowClasses="oddRow,evenRow"
+						classe="table-striped">
+						<f:facet name="header">
+							
+						</f:facet>
+						
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="#{msgs.promptDepN}" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="#{msgs.promptD}" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.dataAquisicao}">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:outputLabel>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="#{msgs.promptC}" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.categoria}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="#{msgs.promptVu}" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.vidaUtil}">
+								<f:convertNumber pattern="#'anos'"/>
+							</h:outputLabel>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="#{msgs.promptVa}" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.valorAquisicao}">
+								<f:convertNumber pattern="#0.00"/>
+							</h:outputLabel>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="#{msgs.promptTu}" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.turnos}">
+								<f:convertNumber pattern="#0 x 8hs"/>
+							</h:outputLabel>
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="#{msgs.promptTr}" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.taxaResidual}">
+								<f:convertNumber pattern="# '%'"/>
+							</h:outputLabel>
+							
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Valor Baixa" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.valorBaixa}">
+								<f:convertNumber pattern="#0.00"/>
+							</h:outputLabel>
+							
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputLabel value="Data Baixa" />
+							</f:facet>
+							<h:outputLabel value="#{patrimonio.dataBaixa}">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:outputLabel>
+							
+						</h:column>
+						
+					</h:dataTable>
+					</div>
+					<div class="btn-group" style="margin-top: 20px; margin-bottom: 20px;">
+					<h:commandButton class="btn btn-primary" value="#{msgs.botaoVoltar}" action="inventario"/>
+				</div>
+					
+				</h:form>
+			</div>
+			</div>
+			</ui:define>
+    	</ui:composition>
+    </h:body>
+</html>

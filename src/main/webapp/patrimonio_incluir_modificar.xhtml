@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+    <h:body>
+    	<ui:composition template="/templates/layout.xhtml">
+    	<ui:define name="content">
+    	
+    		<h:inputHidden value="#{viewPatrimonio.patrimonio.id}" />
+	
+			
+    		<div class="panel panel-info">
+		    	<div class="panel-heading"><h1>#{msgs.tituloP}</h1></div>
+		    	<h:form>
+					<div class="alert alert-info">
+						<strong>#{msgs.txA}</strong> #{msgs.txP}
+						<h:commandLink action="ver_mais"> #{msgs.txV}</h:commandLink>
+					</div>	
+				</h:form>
+		    	
+		    	<h:form id="Patrimonio">
+		    		<h:inputHidden value="#{viewPatrimonio.patrimonio.id}" />
+		    		<h:messages layout="table" errorClass="errors"/>
+		    		<div class="form-inline" style="margin-top: 20px;">
+		    		
+			    		<div class="form-group">
+			    			<h:outputLabel value="#{msgs.tituloI}"> </h:outputLabel>
+			    			<div class="col-sm-20">
+				    			<h:selectOneRadio class="form-control" value="#{viewPatrimonio.patrimonio.bemUsado}"
+				    				 id="Tipo" required="true">
+							      		<f:selectItem itemValue="#{msgs.itemn}" itemLabel="#{msgs.promptn}" />
+							      		
+							      		<f:selectItem itemValue="#{msgs.items}" itemLabel="#{msgs.prompts}" />
+								</h:selectOneRadio>
+							</div>
+			    		</div>
+			    	</div>
+			    	<div class="form-inline">
+			    		<div class="form-group" style="margin-bottom: 20px; margin-top: 20px;">
+			    			<h:outputLabel value="#{msgs.promptT}"></h:outputLabel>
+			    			<h:selectOneMenu value="#{viewPatrimonio.patrimonio.tempoDeUso}" required="true">
+		 						<f:selectItem itemLabel="bem novo" itemValue="0" />
+								<f:selectItem itemLabel="1 ano" itemValue="1" />
+								<f:selectItem itemLabel="2 anos" itemValue="2" />
+								<f:selectItem itemLabel="3 anos" itemValue="3" />
+								<f:selectItem itemLabel="4 anos" itemValue="4" />
+								<f:selectItem itemLabel="5 anos" itemValue="5" />
+								<f:selectItem itemLabel="6 anos" itemValue="6" />
+								<f:selectItem itemLabel="7 anos" itemValue="7" />
+								<f:selectItem itemLabel="8 anos" itemValue="8" />
+								<f:selectItem itemLabel="9 anos" itemValue="9" />
+								<f:selectItem itemLabel="10 anos" itemValue="10" />
+								<f:selectItem itemLabel="11 anos" itemValue="11" />
+								<f:selectItem itemLabel="12 anos" itemValue="12" />
+								<f:selectItem itemLabel="13 anos" itemValue="13" />
+								<f:selectItem itemLabel="14 anos" itemValue="14" />
+								<f:selectItem itemLabel="15 anos" itemValue="15" />
+								<f:selectItem itemLabel="16 anos" itemValue="16" />
+								<f:selectItem itemLabel="17 anos" itemValue="17" />
+								<f:selectItem itemLabel="18 anos" itemValue="18" />
+								<f:selectItem itemLabel="19 anos" itemValue="19" />
+								<f:selectItem itemLabel="20 anos" itemValue="20" />
+								<f:selectItem itemLabel="21 anos" itemValue="21" />
+								<f:selectItem itemLabel="22 anos" itemValue="22" />
+								<f:selectItem itemLabel="23 anos" itemValue="23" />
+								<f:selectItem itemLabel="24 anos" itemValue="24" />
+								<f:selectItem itemLabel="25 anos" itemValue="25" />
+							</h:selectOneMenu>
+			    		</div>
+			    	</div>
+			    	<h:messages layout="table" errorClass="errors"/>
+			    	<div class="form-horizontal">
+			    		<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptDepN}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputText class="form-control" value="#{viewPatrimonio.patrimonio.nome}"
+	 							required="true"/>
+	 							
+	 						</div>
+	 					</div>
+			    		<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptD}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputText class="form-control" value="#{viewPatrimonio.patrimonio.dataAquisicao}"
+	 							required="true">
+	 								<f:convertDateTime dateStyle="short"/>
+	 							</h:inputText>
+	 							
+	 						</div>
+			    		</div>
+	 					<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptVa}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputText class="form-control" 
+	 							value="#{viewPatrimonio.patrimonio.valorAquisicao}" required="true">
+	 								<f:convertNumber minFractionDigits="2"/>
+	 						</h:inputText>
+	 						</div>
+	 					</div>
+	 					<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptTr}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputText class="form-control" value="#{viewPatrimonio.patrimonio.taxaResidual}" required="true">
+	 								<f:convertNumber pattern="#,##0.0#"/>
+	 						</h:inputText>
+	 						</div>
+	 					</div>
+	 					<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptC}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputText class="form-control" value="#{viewPatrimonio.patrimonio.categoria}"
+	 							required="true"/>
+	 						</div>
+	 					</div>
+	 					<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptVu}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:inputText class="form-control" value="#{viewPatrimonio.patrimonio.vidaUtil}"
+	 							required="true"/>
+	 						</div>
+	 					</div>
+	 					<div class="form-group">
+			    			<h:outputLabel class="control-label col-sm-5" value="#{msgs.promptTu}"></h:outputLabel>
+			    			<div class="col-sm-3">
+	 							<h:selectOneMenu class="control-label col-sm-30" value="#{viewPatrimonio.patrimonio.turnos}"
+	 							required="true">
+									<f:selectItem itemLabel="#{msgs.item1}" itemValue="1" />
+									<f:selectItem itemLabel="#{msgs.item2}" itemValue="2" />
+									<f:selectItem itemLabel="#{msgs.item3}" itemValue="3" />
+								</h:selectOneMenu>
+	 						</div>
+	 					</div>
+		    		</div>
+					<div class="btn-group" style="margin-bottom: 20px;">
+						<h:commandButton class="btn btn-primary" value="#{msgs.botaoG}" action="#{viewPatrimonio.actionGravar}"/>
+					</div>
+    				</h:form>
+    				<h:form>
+    				
+    					<div class="btn-group" style="margin-bottom: 20px;">
+    						<h:commandButton class="btn btn-primary" value="#{msgs.botaoVoltar}" action="manutencao"/>
+							
+						</div>
+    					
+	    				
+				   	</h:form>
+			</div>
+    	</ui:define>
+    	</ui:composition>
+    </h:body>
+</html>

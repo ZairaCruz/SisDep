@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* ********templates******* */
+#header{
+	width: 900px;
+	background-color: white;
+	/*acima, direita, abaixo, esquerda*/
+	margin: 40px auto 40px auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	/*margem interna*/
+	padding: 10px;
+	font-size: 1.5em;
+	color: #ffffff;
+	text-align: center;
+	border: 7px solid #0960A3;
+	background-color: #0960A3;	
+}
+#content{
+	width: 900px;
+	height: auto;
+	background-color: white;
+	/*acima, direita, abaixo, esquerda*/
+	margin: 40px auto 40px auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	/*margem interna*/
+	padding: 10px;
+	font-size: 1em;
+	text-align: center;
+	
+}
+#footer{
+	width: 900px;
+	/*acima, direita, abaixo, esquerda*/
+	margin: 40px auto 40px auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	/*margem interna*/
+	padding: 10px;
+	font-size: 0.8em;
+	color: #ffffff;
+	text-align: center;
+	border: 7px solid #0960A3;
+	background-color: #0960A3;
+
+	
+}
+/* ********************************* */
+
+.h1{
+	text-align: center;
+}
+.errors{
+	font-style: italic;
+	color: red;
+	text-align: center;
+}
+.emphasis{
+	font-size: 1.3em;
+}
+.links{
+	font-size: 1.5em;
+	color: #6a6a6a;
+	text-decoration: none;
+	font-weight: bolder;
+}
+.links:hover {
+	text-decoration: underline; 
+	color: #0960A3;
+}
+.campoBotoes{
+	margin-top: 20px;
+	text-align: center;
+}
+.ordersHeader{
+	background: #989ffc;
+	text-align: center;
+	color: #000000;
+}
+.oddRow{
+	background: #c0c0c0;
+	text-align: center;
+}
+.evenRow{
+	background: white;
+	text-align: center;
+	
+}

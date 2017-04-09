@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+    <h:body>
+    	<ui:composition template="/templates/layout.xhtml">
+    	<ui:define name="content">
+    		<div class="panel panel-info">
+		    	<div class="panel-heading"><h1>#{msgs.tituloManu}</h1></div>
+    		
+    			
+    		<div align="center">
+				
+				<h:graphicImage style="margin-top: 20px;" library="imagem" name="layout.png" title="#{msgs.tituloManu}"/>
+				<h:form>
+					<div class="btn-group" style="margin-top: 20px; margin-bottom: 20px;">
+		 				<h:commandButton class="btn btn-primary btn-block" value="#{msgs.linkManu}"
+								action="#{viewPatrimonio.actionNovo}"/>
+	 				</div>
+				
+					<h:inputHidden value="#{viewPatrimonio.patrimonio.id}" />
+					<h:dataTable value="#{viewPatrimonio.list}" var="patrimonio"
+					class=" table table-hover " style="text-align:center;">
+						
+						<h:column>
+							
+							<h:outputLabel value="#{patrimonio.id}" />
+						</h:column>
+						<h:column>
+							
+							<h:outputLabel value="#{patrimonio.nome}" />
+						</h:column>
+						<h:column>
+							
+							<h:outputLabel value="#{patrimonio.categoria}" />
+						</h:column>
+						
+						<h:column>
+							
+							<h:commandLink action="patrimonio_incluir_modificar">
+								<h:graphicImage library="imagem" name="contentpeq.png" title="Modificar Patrimônio"/>
+								<f:setPropertyActionListener value="#{patrimonio}" target="#{viewPatrimonio.patrimonio}"/>
+							</h:commandLink>
+						</h:column>
+						<h:column>
+							
+							<h:commandLink action="#{viewPatrimonio.actionCalcularDep}">
+								<h:graphicImage library="imagem" name="timeline.png" title="#{msgs.tituloDep}"/>
+								<f:setPropertyActionListener value="#{patrimonio}" target="#{viewPatrimonio.patrimonio}"/>
+							</h:commandLink>
+						</h:column>
+						
+					</h:dataTable>
+
+					<div class="btn-group" style="margin-top: 20px;">
+		 				<h:commandButton class="btn btn-primary" value="#{msgs.botaoVoltar}" action="#{viewPatrimonio.actionVoltarMenu}"/>
+	 				</div>
+
+				</h:form>
+			</div>
+			</div>
+    	</ui:define>
+    	</ui:composition>
+    </h:body>
+</html>

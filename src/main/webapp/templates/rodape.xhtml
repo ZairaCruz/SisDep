@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <body>
+	    <ui:composition>
+	
+			<div style="font-size: 1.2em;">#{msgs.tituloRod}</div>
+				<h:outputLabel style="font-size: 1em; margin-top: -50px;" value="#{viewPatrimonio.d}">
+    				<f:convertDateTime pattern="d 'de' MMMM 'de' yyyy"/>
+    			</h:outputLabel>
+	    </ui:composition>
+    </body>
+</html>

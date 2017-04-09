@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+   
+    <h:body>
+    	<ui:composition template="/templates/layout.xhtml">
+    	<ui:define name="content">
+    		<div class="panel panel-info">
+		    	<div class="panel-heading"><h1></h1></div>
+		    	<div class="panel-body">
+					<h:form>
+					  
+					   	<div class="form-group">
+							<h:outputLabel value="#{msgs.promptLo}"/>
+						<h:inputText class="form-control" value="#{viewLogin.usuario.login}"/>
+						</div>
+						<div class="form-group">	    			
+							<h:outputLabel value="#{msgs.promptSe}"/>
+					   		<h:inputSecret class="form-control" value="#{viewLogin.usuario.senha}"/>
+						</div>   	
+				   			<h:commandButton class="btn btn-primary btn-block" value="#{msgs.botaoEnt}" action="#{viewLogin.actionLogar}"/>
+							<h:commandButton class="btn btn-primary btn-block" value=" #{msgs.botaoS} " action="index"/>
+					
+				   	</h:form>
+				</div>
+		    </div>
+    	</ui:define>
+    	</ui:composition>
+    </h:body>
+</html>
